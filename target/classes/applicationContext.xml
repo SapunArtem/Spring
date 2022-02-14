@@ -7,23 +7,7 @@
         http://www.springframework.org/schema/context
         http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:property-placeholder location="classpath:MusicPlayer.properties"/>
+   <context:component-scan base-package="by.sapun.spring"/>
 
-    <bean id="musicBean"
-          class="by.sapun.spring.ClassicalMusic"
-            init-method = "doMyInit"
-            destroy-method="doMyDestroy"
-            factory-method="getClassicalMusic">
-            </bean>
-    <!--<bean id="musicPlayer"
-          class="by.sapun.spring.MusicPlayer"
-    scope="prototype">
-
-<property name="music" ref = "musicBean"/>
-
-
-        <property name="name" value="Some name"/>
-        <property name="volume" value="70"/>
-    </bean>-->
 
 </beans>
