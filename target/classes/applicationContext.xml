@@ -8,28 +8,22 @@
         http://www.springframework.org/schema/context/spring-context.xsd">
 
     <context:property-placeholder location="classpath:MusicPlayer.properties"/>
-    <bean id="musicBean1"
-          class="by.sapun.spring.RockMusic">
-    </bean>
-    <bean id="musicBean2"
-          class="by.sapun.spring.ClassicalMusic">
-    </bean>
-    <bean id="musicBean3"
-          class="by.sapun.spring.PopMusic">
-    </bean>
 
-    <bean id="musicPlayer"
-          class="by.sapun.spring.MusicPlayer">
-<property name="musicList">
-    <list>
-        <ref bean="musicBean1"/>
-        <ref bean="musicBean2"/>
-        <ref bean="musicBean3"/>
-    </list>
-</property>
-        
-        <property name="name" value="${musicPlayer.name}"/>
-        <property name="volume" value="${musicPlayer.volume}"/>
-    </bean>
+    <bean id="musicBean"
+          class="by.sapun.spring.ClassicalMusic"
+            init-method = "doMyInit"
+            destroy-method="doMyDestroy"
+            factory-method="getClassicalMusic">
+            </bean>
+    <!--<bean id="musicPlayer"
+          class="by.sapun.spring.MusicPlayer"
+    scope="prototype">
+
+<property name="music" ref = "musicBean"/>
+
+
+        <property name="name" value="Some name"/>
+        <property name="volume" value="70"/>
+    </bean>-->
 
 </beans>
